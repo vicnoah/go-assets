@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// An in-memory asset file system. The file system implements the
+// FileSystem An in-memory asset file system. The file system implements the
 // http.FileSystem interface.
 type FileSystem struct {
 	// A map of directory paths to the files in those directories.
@@ -21,10 +21,11 @@ type FileSystem struct {
 	LocalPath string
 }
 
+// NewFileSystem create a file system instance
 func NewFileSystem(dirs map[string][]string, files map[string]*File, localPath string) *FileSystem {
 	fs := &FileSystem{
-		Dirs: dirs,
-		Files: files,
+		Dirs:      dirs,
+		Files:     files,
 		LocalPath: localPath,
 	}
 
@@ -35,18 +36,19 @@ func NewFileSystem(dirs map[string][]string, files map[string]*File, localPath s
 	return fs
 }
 
-func (f *FileSystem) NewFile(path string, filemode os.FileMode, mtime time.Time, data []byte) *File {
+// NewFile create a file
+func (f *FileSystem) NewFile(path string, fileMode os.FileMode, mTime time.Time, data []byte) *File {
 	return &File{
 		Path:     path,
-		FileMode: filemode,
-		Mtime:    mtime,
+		FileMode: fileMode,
+		Mtime:    mTime,
 		Data:     data,
 
 		fs: f,
 	}
 }
 
-// Implementation of http.FileSystem
+// Open Implementation of http.FileSystem
 func (f *FileSystem) Open(p string) (http.File, error) {
 	p = path.Clean(p)
 

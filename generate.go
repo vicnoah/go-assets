@@ -17,7 +17,7 @@ type file struct {
 	path string
 }
 
-// An asset generator. The generator can be used to generate an asset go file
+// Generator An asset generator. The generator can be used to generate an asset go file
 // with all the assets that were added to the generator embedded into it.
 // The generated assets are made available by the specified go variable
 // VariableName which is of type assets.FileSystem.
@@ -85,6 +85,7 @@ func (x *Generator) addParents(p string, prefix string) error {
 	}
 
 	wosep := dname[0 : len(dname)-1]
+	fmt.Println(wosep)
 
 	if err := x.addParents(wosep, prefix); err != nil {
 		return err
@@ -98,6 +99,7 @@ func (x *Generator) addParents(p string, prefix string) error {
 
 	if _, ok := x.fsFilesMap[wosep]; !ok {
 		pp := path.Join(prefix, wosep)
+		fmt.Println(pp)
 		s, err := os.Stat(pp)
 
 		if err != nil {
@@ -159,9 +161,8 @@ func (x *Generator) stripPrefix(p string) (string, bool) {
 
 	if strings.HasPrefix(p, x.StripPrefix) {
 		return p[len(x.StripPrefix):], true
-	} else {
-		return p, false
 	}
+	return p, false
 }
 
 // Write the asset tree specified in the generator to the given writer. The
@@ -187,7 +188,7 @@ func (x *Generator) Write(wr io.Writer) error {
 	fmt.Fprintln(writer, "import (")
 	fmt.Fprintln(writer, "\t\"time\"")
 	fmt.Fprintln(writer)
-	fmt.Fprintln(writer, "\t\"github.com/jessevdk/go-assets\"")
+	fmt.Fprintln(writer, "\t\"github.com/vicnoah/go-assets\"")
 	fmt.Fprintln(writer, ")")
 	fmt.Fprintln(writer)
 

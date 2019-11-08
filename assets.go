@@ -1,4 +1,4 @@
-// go-assets is a simple embedding asset generator and consumer library for go.
+// Package assets is a simple embedding asset generator and consumer library for go.
 // The main use of the library is to generate and embed small in-memory file
 // systems ready to be integrated in webservers or other services which have
 // a small amount of assets used at runtime. This is great for being able to do
