@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a87fe931-05a3-4171-9856-48141bc433c1" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/go-assets.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets.go" beforeDir="false" afterPath="$PROJECT_DIR$/assets.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filesystem.go" beforeDir="false" afterPath="$PROJECT_DIR$/filesystem.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/generate.go" afterDir="false" />
-    </list>
+    <list default="true" id="a87fe931-05a3-4171-9856-48141bc433c1" name="默认更改列表" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

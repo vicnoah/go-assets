@@ -2,6 +2,7 @@ package assets
 
 import (
 	"bytes"
+	"math"
 	"net/http"
 	"os"
 	"path"
@@ -75,11 +76,13 @@ func (f *FileSystem) readDir(p string, index int, count int) ([]os.FileInfo, err
 	if d, ok := f.Dirs[p]; ok {
 		maxl := index + count
 
-		if maxl > len(d) {
+		if maxl > len(d) && len(d) != 0 {
 			maxl = len(d)
+		} else {
+			return make([]os.FileInfo, 0, 0), nil
 		}
 
-		ret := make([]os.FileInfo, 0, maxl-index)
+		ret := make([]os.FileInfo, 0, int(math.Abs(float64(maxl-index))))
 
 		for i := index; i < maxl; i++ {
 			ret = append(ret, f.Files[path.Join(p, d[i])])
